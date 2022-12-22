@@ -128,7 +128,7 @@ function simulateKey(key){
       break;
   }
 
-  window.dispatchEvent(new KeyboardEvent('keydown', {
+  document.querySelector('body').dispatchEvent(new KeyboardEvent('keydown', {
       key: key,
       keyCode: code,
       code: "Key" + key.toUpperCase(),
@@ -147,7 +147,7 @@ const playMusic = async () => {
   while(musicPlaying){
     simulateKey('E');
 
-    await eval(notes);
+    eval(notes);
 
     await delay(13000);
     simulateKey('E');
