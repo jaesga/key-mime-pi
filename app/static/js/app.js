@@ -142,12 +142,151 @@ function simulateKey(key){
 const playMusic = async () => {
   musicPlaying = true;
 
-  var notes = document.getElementById('music-notes').value;
-
   while(musicPlaying){
     simulateKey('E');
 
-    eval(notes);
+    await delay(2380); 
+    simulateKey('W');
+    await delay(450); 
+    simulateKey('A');
+    await delay(500); 
+    simulateKey('S');
+
+    await delay(600);
+    simulateKey('W');
+    await delay(550);
+    simulateKey('W');
+    await delay(500);
+    simulateKey('A');
+
+    await delay(500);
+    simulateKey('S');
+    await delay(1000);
+    simulateKey('W');
+    await delay(550);
+    simulateKey('A');
+    
+    await delay(530);
+    simulateKey('S');
+    await delay(500);
+    simulateKey('A');
+    await delay(500);
+    simulateKey('S');
+
+    await delay(600);
+    simulateKey('W');
+    await delay(500); 
+    simulateKey('S');
+    await delay(500); 
+    simulateKey('S');
+
+    await delay(450); 
+    simulateKey(' ');
+    await delay(500); 
+    simulateKey('S');
+    await delay(500); 
+    simulateKey(' ');
+    await delay(500); 
+    simulateKey('S');
+    await delay(500); 
+    simulateKey(' ');
+    await delay(500); 
+    simulateKey('S');
+
+    await delay(500); 
+    simulateKey(' ');
+    await delay(450); 
+    simulateKey('K');
+
+    await delay(500); 
+    simulateKey(' ');
+    await delay(500); 
+    simulateKey('S');
+    await delay(500); 
+    simulateKey(' ');
+    await delay(500); 
+    simulateKey('S');
+    await delay(500); 
+    simulateKey(' ');
+    await delay(450); 
+    simulateKey('S');
+
+    await delay(450); 
+    simulateKey(' ');
+    await delay(600);
+    simulateKey('W');
+    await delay(500); 
+    simulateKey('K');
+    await delay(500); 
+    simulateKey('S');
+
+    await delay(600); 
+    simulateKey('D');
+    await delay(500); 
+    simulateKey('S');
+    await delay(500); 
+    simulateKey('D');
+    await delay(500); 
+    simulateKey('D');
+
+    await delay(500); 
+    simulateKey(' ');
+    await delay(500); 
+    simulateKey(' ');
+    await delay(500); 
+    simulateKey('S');
+    await delay(500); 
+    simulateKey('S');
+    await delay(500); 
+    simulateKey('D');
+    await delay(500); 
+    simulateKey('S');
+
+    await delay(450);
+    simulateKey(' ');
+    await delay(500); 
+    simulateKey('S');
+
+    await delay(450);
+    simulateKey(' ');
+    await delay(500);
+    simulateKey('S');
+    await delay(500);
+    simulateKey('S');
+    await delay(500);
+    simulateKey('A');
+
+    await delay(550);
+    simulateKey(' ');
+    await delay(500);
+    simulateKey(' ');
+
+    await delay(500);
+    simulateKey('D');
+    await delay(500);
+    simulateKey('D');
+    await delay(500);
+    simulateKey('S');
+    await delay(500);
+    simulateKey('K');
+
+    await delay(500);
+    simulateKey(' ');
+    await delay(500);
+    simulateKey('S');
+    await delay(500);
+    simulateKey('S');
+    await delay(400);
+    simulateKey('A');
+
+    await delay(500);
+    simulateKey(' ');
+    await delay(500); 
+    simulateKey('S');
+    await delay(500);
+    simulateKey('S');
+    await delay(500);
+    simulateKey('K');
 
     await delay(13000);
     simulateKey('E');
