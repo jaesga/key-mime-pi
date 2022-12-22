@@ -10,19 +10,24 @@
     <body>
       <div class="container">
         <h1>Key Mime Pi</h1>
-        <p class="subtitle">The Raspberry Pi Keyboard Mimic</p>
         <div>
           <p class="status">Status: <span id="status-connected">Connected</span><span id="status-disconnected">Disconnected</span></p>
           <p id="disconnect-reason"></p>
         </div>
-        <p id="instructions">Begin typing to send keystrokes to your Raspberry Pi</p>
         <div class="container keystroke-history">
           <h2>Keystroke history</h2>
           <div id="recent-keys"></div>
-          <form class="history-form">
-            <input type="checkbox" id="display-history-checkbox" checked>
-            <label for="display-history-checkbox">Show history</label>
-          </form>
+        </div>
+
+
+        <div class="container music-actions">
+          <h2>Music</h2>
+          
+          <textarea id="music-notes" cols="100" rows="10"></textarea>
+          <button id="music-start" type="button" onclick="playMusic()">Start</button>
+          <button id="music-stop" type="button" onclick="stopMusic()">Stop</button>
+            
+          
         </div>
         <p>
           Key Mime Pi is released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
