@@ -12,7 +12,6 @@ function onSocketConnect() {
   connected = true;
   document.getElementById('status-connected').style.display = 'inline-block';
   document.getElementById('status-disconnected').style.display = 'none';
-  document.getElementById('instructions').style.visibility = 'visible';
   document.getElementById('disconnect-reason').style.visibility = 'hidden';
 }
 
@@ -22,7 +21,6 @@ function onSocketDisconnect(reason) {
   document.getElementById('status-disconnected').style.display = 'inline-block';
   document.getElementById('disconnect-reason').style.visibility = 'visible';
   document.getElementById('disconnect-reason').innerText = 'Error: ' + reason;
-  document.getElementById('instructions').style.visibility = 'hidden';
 }
 
 function limitRecentKeys(limit) {
@@ -79,6 +77,7 @@ function onKeyDown(evt) {
     location = 'right';
   }
   
+
   socket.emit('keystroke', {
     metaKey: evt.metaKey,
     altKey: evt.altKey,
@@ -129,22 +128,15 @@ function simulateKey(key){
       break;
   }
 
-  var keyboardEvent = document.createEvent('KeyboardEvent');
-  var initMethod = typeof keyboardEvent.initKeyboardEvent !== 'undefined' ? 'initKeyboardEvent' : 'initKeyEvent';
-
-  keyboardEvent[initMethod](
-    'keydown', // event type: keydown, keyup, keypress
-    true, // bubbles
-    true, // cancelable
-    window, // view: should be window
-    false, // ctrlKey
-    false, // altKey
-    false, // shiftKey
-    false, // metaKey
-    code, // keyCode: unsigned long - the virtual key code, else 0
-    0, // charCode: unsigned long - the Unicode character associated with the depressed key, else 0
-  );
-  document.dispatchEvent(keyboardEvent);
+  window.dispatchEvent(new KeyboardEvent('keydown', {
+      key: key,
+      keyCode: code,
+      code: "Key" + key.toUpperCase(),
+      which: code,
+      shiftKey: false,
+      ctrlKey: false,
+      metaKey: false
+  }));
 }
 
 const playMusic = async () => {
@@ -155,7 +147,7 @@ const playMusic = async () => {
   while(musicPlaying){
     simulateKey('E');
 
-    eval(notes);
+    await eval(notes);
 
     await delay(13000);
     simulateKey('E');
@@ -175,7 +167,6 @@ function stopMusic(){
 
 
 document.querySelector('body').addEventListener("keydown", onKeyDown);
-document.getElementById('display-history-checkbox').addEventListener("change", onDisplayHistoryChanged);
 socket.on('connect', onSocketConnect);
 socket.on('disconnect', onSocketDisconnect);
 socket.on('keystroke-received', (data) => {
