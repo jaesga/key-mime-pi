@@ -1,6 +1,8 @@
 import time
 import logging
 
+logger = logging.getLogger(__name__)
+
 def send(hid_path, control_keys, hid_keycode):
     logger.info("Key Stroke")
     with open(hid_path, 'wb+') as hid_handle:
