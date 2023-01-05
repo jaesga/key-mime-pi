@@ -22,6 +22,9 @@ def send_long(hid_path, control_keys, hid_keycode):
         buf[2] = hid_keycode
         hid_handle.write(bytearray(buf))
         logger.info("Key E")
-        time.sleep(0.8)
-        logger.info("Key E release")
+
+    time.sleep(2.8)
+    
+    with open(hid_path, 'wb+') as hid_handle:
         hid_handle.write(bytearray([0] * 8))
+        logger.info("Key E Release")
